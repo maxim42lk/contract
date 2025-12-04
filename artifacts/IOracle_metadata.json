@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "subject",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "body",
+						"type": "string"
+					}
+				],
+				"name": "requestEmailNotification",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "requestId",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MyToken.sol": "IOracle"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"MyToken.sol": {
+			"keccak256": "0x60d28b41e930ec6ab37f7e504ebaf424fc9ecb1773361449a6cb2694817e2df9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://deb9a9a2bee22e6586bbd44efb3f561709b5dedff90ebee4da90bc9a5633f0ea",
+				"dweb:/ipfs/QmZy5grfyouxhiERokj6pHWczf8PEP5QdyZWi7qPHSTWTL"
+			]
+		}
+	},
+	"version": 1
+}
