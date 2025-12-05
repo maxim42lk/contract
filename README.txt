@@ -1,28 +1,53 @@
-REMIX DEFAULT WORKSPACE
+Это расширенный ERC-20 токен с дополнительной функциональностью отправки и хранения сообщений. Контракт объединяет стандартные возможности криптовалютного токена с системой уведомлений/комментариев.
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+1. Хранение данных
+Публичные переменные:
 
-This workspace contains 3 directories:
+transferHistory[] - массив всех переводов с сообщениями
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+balanceOf - балансы пользователей
 
-SCRIPTS
+allowance - разрешения на расходование
 
-The 'scripts' folder has two typescript files which help to deploy the 'Storage' contract using 'ethers.js' libraries.
+owner - владелец контракта
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts`
+Приватные переменные:
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+lastMessage - последнее отправленное сообщение
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+lastTransferWithMessage - последний перевод с сообщением
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+2. События (Events)
+Transfer - стандартное + расширенное с сообщением
+
+Approval - подтверждение расходов
+
+MessageSent - отправка отдельного сообщения
+
+TransferWithMessageEvent - перевод с сообщением
+
+Основные функции
+Переводы токенов
+transfer(to, amount) - стандартный перевод ERC-20
+
+transferWithMessage(to, amount, message) - перевод с комментарием
+
+transferFrom(from, to, amount) - перевод от имени другого адреса
+
+transferFromWithMessage(from, to, amount, message) - делегированный перевод с комментарием
+
+Работа с сообщениями
+sendMessage(message) - отправить только сообщение
+
+getLastMessage() - получить последнее сообщение
+
+getLastTransferWithMessage() - получить последний перевод с деталями
+
+getLastMessageAndTransfer() - комбинированные данные
+
+История переводов
+transferHistory[index] - доступ к конкретному переводу
+
+getTransferHistoryCount() - количество переводов в истории
+
+getTransferWithMessage(index) - получение перевода по индексу
